@@ -1,0 +1,37 @@
+{
+  "name": "jimp-loader",
+  "version": "0.0.0",
+  "description": "a webpack image handling loader using jimp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cusspvz/jimp-loader.git"
+  },
+  "keywords": [
+    "jimp",
+    "loader",
+    "webpack",
+    "plugin",
+    "image",
+    "resize",
+    "scale",
+    "jpg",
+    "jpeg",
+    "png",
+    "size",
+    "width",
+    "height",
+    "crop",
+    "optimizer",
+    "quality"
+  ],
+  "author": "José Moreira <josemoreiravarzim@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cusspvz/jimp-loader/issues"
+  },
+  "homepage": "https://github.com/cusspvz/jimp-loader#readme"
+}
