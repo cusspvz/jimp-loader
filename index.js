@@ -37,7 +37,7 @@ function fetchMime ( options ) {
   return output
 }
 
-module.exports = function ( content ) {
+function JimpLoader ( content ) {
   this.cacheable( true )
   var cb = this.async()
 
@@ -50,24 +50,21 @@ module.exports = function ( content ) {
     {}
   )
 
-  console.log( options )
+  var MIME_OUTPUT = fetchMime.call( this, options )
 
-  try {
-    var MIME_OUTPUT = fetchMime.call( this, options )
-  } catch ( err ) {
-    return cb( err )
-  }
-
-  Jimp.read( this.resourcePath, function ( err, image ) {
-    if ( err ) {
-      return cb( err, null )
-    }
+  Jimp.read( content )
+  .catch( cb )
+  .then(function ( image ) {
 
     if ( options.resize ) {
       image.resize(
         +options.resize.width || +options.resize.w || Jimp.AUTO,
         +options.resize.height || +options.resize.h || Jimp.AUTO
       )
+    }
+
+    if ( options.brightness ) {
+      image.brightness( +options.brightness )
     }
 
     if ( options.quality ) {
@@ -77,3 +74,7 @@ module.exports = function ( content ) {
     image.getBuffer( MIME_OUTPUT, cb )
   })
 }
+
+JimpLoader.raw = true
+
+module.exports = JimpLoader
