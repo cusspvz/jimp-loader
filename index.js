@@ -68,7 +68,7 @@ function JimpLoader ( content ) {
     }
 
     if ( options.quality ) {
-      image.quality( options.quality )
+      image.quality( +options.quality )
     }
 
     image.getBuffer( MIME_OUTPUT, cb )
